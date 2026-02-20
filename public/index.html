@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Interface</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+        }
+
+        .chat-container {
+            width: 400px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: #6c5ce7;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .chat-box {
+            height: 300px;
+            padding: 15px;
+            overflow-y: auto;
+            background: #fafafa;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .message.sent {
+            background: #6c5ce7;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .message.received {
+            background: #dfe6e9;
+            color: black;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            background: #ffffff;
+            border-top: 1px solid #ddd;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #6c5ce7;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #574b90;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            Chat Room
+        </div>
+        <div class="chat-box" id="chat-box">
+            <div class="message received">Hello! How can I help you?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type a message..." id="chat-input">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    <script>
+        const sendButton = document.getElementById('send-button');
+        const chatInput = document.getElementById('chat-input');
+        const chatBox = document.getElementById('chat-box');
+
+        sendButton.addEventListener('click', () => {
+            const messageText = chatInput.value;
+            if (messageText) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', 'sent');
+                messageDiv.textContent = messageText;
+                chatBox.appendChild(messageDiv);
+                chatInput.value = '';
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
