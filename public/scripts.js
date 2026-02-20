@@ -1,0 +1,1 @@
+Socket.IO connection and chat functionality with message handling, user list management, and room switching features
