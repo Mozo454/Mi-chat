@@ -1,0 +1,20 @@
+# Logs
+logs/
+
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# VSCode settings
+.vscode/
+
+# Database files
+/db/messages.json
+
+# Other standard files to ignore
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
